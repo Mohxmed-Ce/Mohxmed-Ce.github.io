@@ -1,166 +1,932 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohxmed-Ce | Portfolio</title>
+
+    <title>Mohamed Ras | Portfolio</title>
 
     <style>
-        body {
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 17, 32, 0.94);
+            backdrop-filter: blur(10px);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           ACCUEIL
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #172554,
+                    #0b1120 60%
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 4vw, 30px);
+            font-weight: normal;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #2563eb;
             color: white;
         }
 
-        header {
-            text-align: center;
-            padding: 100px 20px;
-            background: #111827;
+        .primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
         }
 
-        header h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
+        .secondary {
+            border: 1px solid #475569;
+            color: white;
         }
 
-        header p {
-            font-size: 20px;
-            color: #94a3b8;
+        .secondary:hover {
+            background: #1e293b;
         }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
-            padding: 60px 20px;
+            padding: 100px 25px;
         }
 
-        h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 45px;
         }
 
-        .cards {
+        .section-title span {
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           À PROPOS
+        ========================= */
+
+        .about {
+            color: #cbd5e1;
+            font-size: 18px;
+            max-width: 850px;
+        }
+
+
+        /* =========================
+           COMPÉTENCES
+        ========================= */
+
+        .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .card {
-            background: #1e293b;
+        .skill-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
             padding: 25px;
-            border-radius: 15px;
+            transition: 0.3s;
         }
 
-        .card h3 {
-            margin-top: 0;
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
         }
 
-        .card p {
+        .skill-card h3 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .skill-card p {
             color: #cbd5e1;
-            line-height: 1.6;
         }
+
+        .status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .acquired {
+            background: #14532d;
+            color: #bbf7d0;
+        }
+
+        .learning {
+            background: #713f12;
+            color: #fef08a;
+        }
+
+        .future {
+            background: #334155;
+            color: #cbd5e1;
+        }
+
+
+        /* =========================
+           PROJETS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .project p {
+            color: #94a3b8;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 5px 10px;
+            background: #1e3a8a;
+            color: #bfdbfe;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FORMATION
+        ========================= */
+
+        .formation {
+            border-left: 3px solid #2563eb;
+            padding-left: 25px;
+        }
+
+        .formation h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .formation p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           EXPÉRIENCES
+        ========================= */
+
+        .experience {
+            display: grid;
+            gap: 25px;
+        }
+
+        .experience-card {
+            background: #111827;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #1e293b;
+        }
+
+        .experience-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .experience-card .date {
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .experience-card p {
+            color: #cbd5e1;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             text-align: center;
             padding: 30px;
-            background: #111827;
-            color: #94a3b8;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
         }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
-        <h1>Mohxmed-Ce</h1>
-        <p>Étudiant en sciences et technologies</p>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Mohamed Ras
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#about">À propos</a>
+            </li>
+
+            <li>
+                <a href="#skills">Compétences</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projets</a>
+            </li>
+
+            <li>
+                <a href="#formation">Formation</a>
+            </li>
+
+            <li>
+                <a href="#experience">Expériences</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         ACCUEIL
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Mohamed <span>Ras</span>
+            </h1>
+
+            <h2>
+                Étudiant ingénieur — Informatique
+            </h2>
+
+            <p>
+
+                Étudiant en deuxième année de cycle préparatoire
+                intégré au CESI École d'Ingénieurs de Toulouse,
+                passionné par l'informatique et ses applications.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="CV-Mohamed-Ras.pdf"
+                    class="button primary"
+                    target="_blank">
+
+                    📄 Voir mon CV
+
+                </a>
+
+
+                <a
+                    href="https://github.com/Mohxmed-C"
+                    class="button secondary"
+                    target="_blank">
+
+                    💻 Mon GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
     </header>
 
-    <section>
-        <h2>À propos de moi</h2>
 
-        <p>
-            Bienvenue sur mon portfolio.
-            Je suis étudiant et je m'intéresse à l'informatique,
-            l'électronique, la programmation et les systèmes embarqués.
+    <!-- =========================
+         À PROPOS
+    ========================= -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+
+            À propos <span>de moi</span>
+
+        </h2>
+
+
+        <p class="about">
+
+            Passionné par l'informatique et ses applications,
+            je souhaite appliquer mes connaissances en entreprise
+            et continuer à développer mes compétences.
+
+            <br><br>
+
+            Je suis actuellement en deuxième année de cycle
+            préparatoire intégré au CESI École d'Ingénieurs
+            de Toulouse.
+
+            <br><br>
+
+            Je recherche une opportunité professionnelle afin
+            de mettre en pratique mes connaissances et de découvrir
+            davantage le monde de l'ingénierie informatique.
+
         </p>
+
     </section>
 
-    <section>
-        <h2>Mes compétences</h2>
 
-        <div class="cards">
+    <!-- =========================
+         COMPÉTENCES
+    ========================= -->
 
-            <div class="card">
-                <h3>Programmation</h3>
-                <p>Python, C, Arduino</p>
+    <section id="skills">
+
+        <h2 class="section-title">
+
+            Mes <span>compétences</span>
+
+        </h2>
+
+
+        <div class="skills">
+
+
+            <!-- PROGRAMMATION -->
+
+            <div class="skill-card">
+
+                <h3>
+                    💻 Programmation
+                </h3>
+
+                <p>
+
+                    C
+
+                    <br>
+
+                    Programmation orientée objet
+
+                </p>
+
+                <span class="status learning">
+
+                    🔄 Programmation orientée objet —
+                    En cours
+
+                </span>
+
             </div>
 
-            <div class="card">
-                <h3>Base de données</h3>
-                <p>SQL et MySQL</p>
+
+            <!-- SYSTÈMES EMBARQUÉS -->
+
+            <div class="skill-card">
+
+                <h3>
+                    ⚙️ Systèmes embarqués
+                </h3>
+
+                <p>
+
+                    Programmation embarquée
+
+                    <br>
+
+                    Microcontrôleurs
+
+                    <br>
+
+                    ARM / STM32
+
+                </p>
+
+                <span class="status learning">
+
+                    🔄 ARM / STM32 — En cours
+
+                </span>
+
             </div>
 
-            <div class="card">
-                <h3>Électronique</h3>
-                <p>Arduino, capteurs et systèmes embarqués</p>
+
+            <!-- PYTHON -->
+
+            <div class="skill-card">
+
+                <h3>
+                    🐍 Python
+                </h3>
+
+                <p>
+
+                    Formation Cisco Essentials Python
+
+                </p>
+
+                <span class="status acquired">
+
+                    ✓ Formation terminée
+
+                </span>
+
             </div>
 
-            <div class="card">
-                <h3>Conception</h3>
-                <p>Revit, modélisation et conception de systèmes</p>
+
+            <!-- RÉSEAUX -->
+
+            <div class="skill-card">
+
+                <h3>
+                    🌐 Réseaux
+                </h3>
+
+                <p>
+
+                    Adressage IP
+
+                    <br>
+
+                    NAT
+
+                    <br>
+
+                    Ethernet
+
+                    <br>
+
+                    Commutation
+
+                    <br>
+
+                    Protocoles réseau
+
+                </p>
+
+                <span class="status future">
+
+                    📚 À venir dans la formation
+
+                </span>
+
             </div>
+
+
+            <!-- WEB -->
+
+            <div class="skill-card">
+
+                <h3>
+                    🌍 Développement Web
+                </h3>
+
+                <p>
+
+                    HTML
+
+                    <br>
+
+                    CSS
+
+                    <br>
+
+                    JavaScript
+
+                    <br>
+
+                    PHP
+
+                </p>
+
+                <span class="status future">
+
+                    📚 À venir dans la formation
+
+                </span>
+
+            </div>
+
 
         </div>
+
     </section>
 
-    <section>
-        <h2>Mes projets</h2>
 
-        <div class="cards">
+    <!-- =========================
+         PROJETS
+    ========================= -->
 
-            <div class="card">
-                <h3>Capteur de qualité de l'air</h3>
+    <section id="projects">
+
+        <h2 class="section-title">
+
+            Mes <span>projets</span>
+
+        </h2>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <h3>
+                    🔐 Coffre-fort électronique
+                </h3>
+
                 <p>
-                    Projet de conception d'un système autonome de mesure
-                    de la qualité de l'air avec Arduino.
+
+                    Conception d'un coffre-fort avec différents
+                    niveaux de sécurité à l'aide d'une carte Arduino.
+
                 </p>
+
+                <span class="tag">
+                    Arduino
+                </span>
+
             </div>
 
-            <div class="card">
-                <h3>Base de données Air Quality</h3>
+
+            <div class="project">
+
+                <h3>
+                    📡 Analyse et traitement d'un signal
+                </h3>
+
                 <p>
-                    Création d'une base de données MySQL permettant
-                    de gérer des données liées à la qualité de l'air.
+
+                    Analyse, filtrage et envoi d'un signal avec
+                    fréquence porteuse par codage Python.
+
                 </p>
+
+                <span class="tag">
+                    Python
+                </span>
+
             </div>
 
-            <div class="card">
-                <h3>Simulation automobile</h3>
-                <p>
-                    Modélisation et simulation physique d'un véhicule
-                    avec Python, NumPy et SciPy.
-                </p>
-            </div>
 
         </div>
+
     </section>
 
-    <section>
-        <h2>Contact</h2>
+
+    <!-- =========================
+         FORMATION
+    ========================= -->
+
+    <section id="formation">
+
+        <h2 class="section-title">
+
+            Ma <span>formation</span>
+
+        </h2>
+
+
+        <div class="formation">
+
+            <h3>
+                CESI École d'Ingénieurs — Toulouse
+            </h3>
+
+            <p>
+                Deuxième année de cycle préparatoire intégré
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPÉRIENCES
+    ========================= -->
+
+    <section id="experience">
+
+        <h2 class="section-title">
+
+            Mes <span>expériences</span>
+
+        </h2>
+
+
+        <div class="experience">
+
+
+            <div class="experience-card">
+
+                <div class="date">
+                    Février 2020
+                </div>
+
+                <h3>
+                    Stage en milieu professionnel —
+                    Mews Partner
+                </h3>
+
+                <p>
+
+                    Introduction au métier d'ingénieur et consultant.
+
+                    <br><br>
+
+                    Mise en situation d'un travail d'ingénieur
+                    possible.
+
+                </p>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="date">
+                    2021 — 2023
+                </div>
+
+                <h3>
+                    Programme Égalité des Chances —
+                    INSA Toulouse
+                </h3>
+
+                <p>
+
+                    Initiation aux divers domaines de
+                    l'aéronautique et du spatial.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">
+
+            Me <span>contacter</span>
+
+        </h2>
+
 
         <p>
-            GitHub :
-            <a href="https://github.com/Mohxmed-C" style="color:#60a5fa;">
-                github.com/Mohxmed-C
+
+            Vous souhaitez me contacter pour un stage,
+            une alternance ou un projet ?
+
+        </p>
+
+
+        <p>
+
+            📧
+
+            <a href="mailto:mohamed.ras@viacesi.fr">
+
+                mohamed.ras@viacesi.fr
+
             </a>
+
         </p>
+
+
+        <div class="buttons">
+
+
+            <a
+                href="CV-Mohamed-Ras.pdf"
+                class="button primary"
+                target="_blank">
+
+                📄 Consulter mon CV
+
+            </a>
+
+
+            <a
+                href="https://github.com/Mohxmed-C"
+                class="button secondary"
+                target="_blank">
+
+                💻 GitHub
+
+            </a>
+
+
+        </div>
+
     </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
-        © 2026 Mohxmed-C — Portfolio
+
+        © 2026 Mohamed Ras — Portfolio
+
     </footer>
 
+
 </body>
+
 </html>
