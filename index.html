@@ -264,6 +264,29 @@
             color: #94a3b8;
         }
 
+        /* Liens cliquables des projets */
+
+        .project-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .project-link:focus-visible {
+            outline: 2px solid #60a5fa;
+            outline-offset: 5px;
+            border-radius: 12px;
+        }
+
+        .project-link .project {
+            height: 100%;
+        }
+
+        .project-link:hover .project {
+            border-color: #3b82f6;
+        }
+
         .tag {
             display: inline-block;
             margin-top: 20px;
@@ -417,6 +440,7 @@
 
     </nav>
 
+
     <!-- ACCUEIL -->
 
     <header class="hero">
@@ -463,6 +487,7 @@
 
     </header>
 
+
     <!-- À PROPOS -->
 
     <section id="about">
@@ -493,6 +518,7 @@
 
     </section>
 
+
     <!-- COMPÉTENCES -->
 
     <section id="skills">
@@ -519,6 +545,7 @@
 
             </div>
 
+
             <div class="skill-card">
 
                 <h3>⚙️ Systèmes embarqués</h3>
@@ -537,6 +564,7 @@
 
             </div>
 
+
             <div class="skill-card">
 
                 <h3>🐍 Python</h3>
@@ -550,6 +578,7 @@
                 </span>
 
             </div>
+
 
             <div class="skill-card">
 
@@ -572,6 +601,7 @@
                 </span>
 
             </div>
+
 
             <div class="skill-card">
 
@@ -597,6 +627,7 @@
 
     </section>
 
+
     <!-- PROJETS -->
 
     <section id="projects">
@@ -607,55 +638,105 @@
 
         <div class="projects">
 
-            <div class="project">
+            <!-- PROJET 1 : COFFRE-FORT ÉLECTRONIQUE -->
 
-                <h3>🔐 Coffre-fort électronique</h3>
+            <a
+                href="BlocElectronique_Etape1_Groupe2A%20(1).pdf"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Consulter le document du projet coffre-fort électronique">
 
-                <p>
-                    Conception d'un coffre-fort avec différents
-                    niveaux de sécurité à l'aide d'une carte Arduino.
-                </p>
+                <div class="project">
 
-                <span class="tag">Arduino</span>
+                    <h3>🔐 Coffre-fort électronique</h3>
 
-            </div>
+                    <p>
+                        Conception d'un coffre-fort électronique
+                        avec différents niveaux de sécurité à l'aide
+                        d'une carte Arduino.
+                    </p>
 
-            <div class="project">
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Électronique</span>
 
-                <h3>📡 Analyse et traitement d'un signal</h3>
+                    <p>
+                        <span class="tag">📄 Voir le document PDF ↗</span>
+                    </p>
 
-                <p>
-                    Analyse, filtrage et envoi d'un signal avec
-                    fréquence porteuse par codage Python.
-                </p>
+                </div>
 
-                <span class="tag">Python</span>
+            </a>
 
-            </div>
 
-            <div class="project">
+            <!-- PROJET 2 : TRAITEMENT DU SIGNAL -->
 
-                <h3>🌍 Base de données — Qualité de l'air</h3>
+            <a
+                href="Livrable2-G2A_V3.pdf"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Consulter le document du projet de traitement du signal">
 
-                <p>
-                    Conception d'un modèle de base de données relationnelle
-                    pour organiser les données liées à la qualité de l'air.
-                    Modélisation des régions, agences, employés, capteurs,
-                    gaz, mesures et rapports. Définition des relations entre
-                    les tables, des clés primaires et étrangères et des
-                    contraintes d'intégrité.
-                </p>
+                <div class="project">
 
-                <span class="tag">SQL</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">MERISE</span>
-                <span class="tag">Modélisation BDD</span>
+                    <h3>📡 Analyse et traitement d'un signal</h3>
 
-            </div>
+                    <p>
+                        Analyse, filtrage et envoi d'un signal
+                        avec fréquence porteuse par codage Python.
+                    </p>
+
+                    <span class="tag">Python</span>
+                    <span class="tag">Traitement du signal</span>
+
+                    <p>
+                        <span class="tag">📄 Voir le document PDF ↗</span>
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- PROJET 3 : BASE DE DONNÉES -->
+
+            <a
+                href="Delivrable_2_G1_B.pdf"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Consulter le document du projet de base de données">
+
+                <div class="project">
+
+                    <h3>🌍 Base de données — Qualité de l'air</h3>
+
+                    <p>
+                        Conception d'un modèle de base de données
+                        relationnelle pour organiser les données
+                        liées à la qualité de l'air. Modélisation
+                        des régions, agences, employés, capteurs,
+                        gaz, mesures et rapports, avec clés primaires,
+                        clés étrangères et contraintes d'intégrité.
+                    </p>
+
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">MERISE</span>
+
+                    <p>
+                        <span class="tag">📄 Voir le document PDF ↗</span>
+                    </p>
+
+                </div>
+
+            </a>
 
         </div>
 
     </section>
+
 
     <!-- FORMATION -->
 
@@ -679,6 +760,7 @@
 
     </section>
 
+
     <!-- EXPÉRIENCES -->
 
     <section id="experience">
@@ -696,7 +778,8 @@
                 </div>
 
                 <h3>
-                    Stage en milieu professionnel — Mews Partner
+                    Stage en milieu professionnel —
+                    Mews Partner
                 </h3>
 
                 <p>
@@ -710,6 +793,7 @@
 
             </div>
 
+
             <div class="experience-card">
 
                 <div class="date">
@@ -717,7 +801,8 @@
                 </div>
 
                 <h3>
-                    Programme Égalité des Chances — INSA Toulouse
+                    Programme Égalité des Chances —
+                    INSA Toulouse
                 </h3>
 
                 <p>
@@ -730,6 +815,7 @@
         </div>
 
     </section>
+
 
     <!-- CONTACT -->
 
@@ -774,6 +860,7 @@
         </div>
 
     </section>
+
 
     <!-- FOOTER -->
 
